@@ -6,6 +6,7 @@ __pycache__/
 # Images
 images
 images/
+image/
 /images
 
 # C extensions

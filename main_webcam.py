@@ -71,9 +71,10 @@ class TumorDetector:
         # Añadir texto a la imagen
         cv2.putText(image, f"Resultado: {label}", (20, 40), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
+        """
         cv2.putText(image, f"Confianza: {confidence:.1f}%", (20, 80),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        
+        """
         # Mostrar la imagen
         cv2.imshow("Resultado del Análisis", image)
         cv2.waitKey(0)
@@ -81,7 +82,7 @@ class TumorDetector:
         
         return {
             "prediction": "Tumor" if prediction > 0.65 else "Sano",
-            "confidence": f"{confidence:.1f}%",
+            # "confidence": f"{confidence:.1f}%",
             "image_path": image_path
         }
 
