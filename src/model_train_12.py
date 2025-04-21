@@ -12,8 +12,8 @@ de dice la dataset que no hay, la pone como sano, pero puede que exista overfiti
 import os
 import shutil
 import datetime
-import tensorflow as tf
-import matplotlib.pyplot as plt
+import tensorflow as tf 
+import matplotlib.pyplot as plt 
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.image import ImageDataGenerator  # type: ignore
