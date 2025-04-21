@@ -7,8 +7,6 @@ This script serves as the entry point for different project functionalities:
 """
 
 import sys
-from src.model_train_10 import BrainTumorDetector as Model10
-from src.model_train_11 import BrainTumorDetector as Model11
 from src.model_train_12 import BrainTumorDetector as Model12
 from src.process_image_intern import TumorDetector_1 as ImageIntern
 from src.process_image_webcam_2 import TumorDetector as WebcamDetector
