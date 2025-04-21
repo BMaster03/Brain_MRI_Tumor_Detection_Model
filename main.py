@@ -1,32 +1,45 @@
 """
-    Main file for the project.
+Main file for the Brain Tumor Detection Project.
 
-    This file is used to run the BrainTumorDetector class for dataset handling, training, and evaluation.
+This script serves as the entry point for different project functionalities:
+- Model training (different versions)
+- Image processing (from webcam or internal storage)
 """
 
 import sys
-from src.model_train_10 import BrainTumorDetector
-from src.model_train_11 import BrainTumorDetector
-from src.model_train_12 import BrainTumorDetector
+from src.model_train_10 import BrainTumorDetector as Model10
+from src.model_train_11 import BrainTumorDetector as Model11
+from src.model_train_12 import BrainTumorDetector as Model12
+from src.process_image_intern import TumorDetector_1 as ImageIntern
+from src.process_image_webcam_2 import TumorDetector as WebcamDetector
 
 def run(program_to_run):
     """
-    Run the project based on model selection.
+    Execute the selected program module.
+    
+    Args:
+        program_to_run (str): Command specifying which module to run
     """
-    if program_to_run == 'model_10':
-        Model_10 = BrainTumorDetector()  
-    elif program_to_run == 'model_11':
-        Model_11 = BrainTumorDetector()
-    elif program_to_run == 'model_12':
-        Model_12 = BrainTumorDetector()
-    elif program_to_run == 'model_13':
-        Model_13 = BrainTumorDetector()
-    else:
-        print("Modelo no reconocido")
+    try:
+        if program_to_run == 'model_12':
+            Model12()
+        elif program_to_run == 'image_intern':
+            detect_1 = ImageIntern()
+            detect_1.run()  
+        elif program_to_run == 'image_webcam':
+            detector = WebcamDetector()
+            detector.run()
+        else:
+            print("\n Error: Comando no reconocido")
+            
+    except Exception as e:
+        print(f"\n Error al ejecutar {program_to_run}: {str(e)}")
+        sys.exit(1)
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] in ['model_10', 'model_11', 'model_12', 'model_13']:
+    if sys.argv[1] in ['model_12', 'image_webcam', 'image_intern']:
         run(sys.argv[1])
     else:
-        print("Comando inválido")
+        print("\n Error: Comando no válido")
+        sys.exit(1)
         
