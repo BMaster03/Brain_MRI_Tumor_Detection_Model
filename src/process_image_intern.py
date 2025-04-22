@@ -117,11 +117,11 @@ class TumorDetector_1:
                 self.show_image_menu()
                 selection = input("\n Seleccione un numero de imagen: ").upper()
                 
-                if selection == 'Q':
+                if selection == 'q':
                     print("\n Saliendo del programa...")
                     break
                     
-                elif selection == 'L':
+                elif selection == 'l':
                     continue
                     
                 try:
