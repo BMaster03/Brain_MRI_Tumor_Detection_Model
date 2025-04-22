@@ -9,7 +9,7 @@ This script serves as the entry point for different project functionalities:
 import sys
 from src.model_train_12 import BrainTumorDetector as Model12
 from src.process_image_intern import TumorDetector_1 as ImageIntern
-from src.process_image_webcam_2 import TumorDetector as WebcamDetector
+from src.process_image_webcam_2 import TumorDetector_2 as WebcamDetector
 
 def run(program_to_run):
     """
@@ -25,8 +25,8 @@ def run(program_to_run):
             detect_1 = ImageIntern()
             detect_1.run()  
         elif program_to_run == 'image_webcam':
-            detector = WebcamDetector()
-            detector.run()
+            detect_2 = WebcamDetector()
+            detect_2.run()
         else:
             print("\n Error: Comando no reconocido")
             

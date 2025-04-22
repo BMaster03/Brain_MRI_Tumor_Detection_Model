@@ -4,7 +4,7 @@ import numpy as np
 from pathlib import Path
 from tensorflow.keras.models import load_model # type: ignore 
 
-class TumorDetector:
+class TumorDetector_2:
     def __init__(self):
         self.model = self.load_model()
         self.prediction_history = []
@@ -47,15 +47,15 @@ class TumorDetector:
             self.prediction_history.pop(0)
         return np.mean(self.prediction_history)
     
-    def run_detection(self):
-        cap = cv2.VideoCapture(1)
+    def run(self):
+        cap = cv2.VideoCapture(0)
         if not cap.isOpened():
             print("Error al abrir la cámara")
             return
 
-        print("\nInstrucciones:")
+        print("\n Instrucciones:")
         print("1. Coloca una imagen de MRI frente a la cámara")
-        print("2. Presiona 'q' para salir\n")
+        print("2. Presiona 'q' para salir \n")
         
         while True:
             ret, frame = cap.read()
@@ -78,7 +78,7 @@ class TumorDetector:
             smoothed_pred = self.smooth_prediction(prediction)
             
             # Visualización
-            label = "TUMOR DETECTADO" if smoothed_pred > 0.65 else "Sano"
+            label = "Tumor detectado" if smoothed_pred > 0.65 else "Sano"
             color = (0, 0, 255) if smoothed_pred > 0.65 else (0, 255, 0)
             confidence = f"{smoothed_pred*100:.1f}%"
             
@@ -101,5 +101,5 @@ class TumorDetector:
         cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    detector = TumorDetector()
-    detector.run_detection()
+    detect_2 = TumorDetector_2()
+    detect_2.run()
